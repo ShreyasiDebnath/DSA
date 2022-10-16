@@ -14,8 +14,13 @@ struct node *push(struct node *top)
     printf("\nEnter data :");
     scanf("\n%d",&x);
     new->data=x;
+    if(top->data==NULL){
+	top=new;	
+	}
+	else{
     new->link=top;
     top=new;
+	}
     return top;
 }
 void peek(struct node * top)
@@ -72,7 +77,6 @@ void main()
 	top=(struct node*)malloc(sizeof(struct node));
 	top->link=NULL;
 	top->data=NULL;
-//	top=pop(top);
     int ch;
     printf("\Press 0 to exit else enter 1: ");
     scanf("\n%d",&ch);
