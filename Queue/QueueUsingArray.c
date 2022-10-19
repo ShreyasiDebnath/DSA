@@ -71,8 +71,8 @@ int main(){
     scanf("%d",&i);
     while(i--){
 	
-    printf("\nValue you want to insert: ");
-    
+
+
     printf("Dequeuing element %d\n", dequeue(&q));
     }
     display(&q);
