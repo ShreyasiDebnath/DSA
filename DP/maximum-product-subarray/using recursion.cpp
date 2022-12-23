@@ -37,3 +37,47 @@ public:
         
     }
 };
+
+/* *************************************ALTERNATIVE*************************************** */
+
+
+
+class Solution {
+ int f(int n,vector<int>& nums,long long int& m,long long int& mini,long long int& ans){
+    if(n==0) {
+       // mi[n]=nums[n];
+        return nums[n];}
+   
+    long long int first=INT_MIN;
+    long long int second= INT_MIN;
+    long long int third=INT_MIN;
+    long long int mp=INT_MIN;
+   
+     first= f(n-1,nums,m,mini,ans)  *nums[n];
+     second= mini *nums[n];
+     third=nums[n];
+    mini=min(first,second);
+    mini=min(mini,third);
+  
+     m=max(first,second);
+    m=max(m,third);
+     ans=max(ans,m);
+    //cout<<n<<"-->"<<dp[n]<<endl;
+    return m;
+}
+public:
+
+    int maxProduct(vector<int>& nums) {
+        int n=nums.size();
+         long long int m=INT_MIN;
+    long long int mini=INT_MAX;
+    long long  ans=nums[0];
+	   
+    m=nums[0];
+    mini=nums[0];
+        f(n-1,nums,m,mini,ans);
+        
+        return ans;
+        
+    }
+};
