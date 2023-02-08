@@ -36,7 +36,7 @@ void selection_sort(int ar[],int n){
     int y;
     for(y=0;y<n;y++) arr[y]=ar[y];
     int i=0;
-    for(i=0;i<n-1;i++){
+    for(i=0;i<n;i++){
         int low=i,j;
         //printf("\nlow: %d",arr[low]);
         for(j=low+1;j<n;j++){
@@ -50,6 +50,39 @@ void selection_sort(int ar[],int n){
                 int temp=arr[low];
                 arr[low]=arr[i];
                 arr[i]=temp;}
+               
+            
+        
+        
+        printf("After %d pass: ",i+1);
+        int k;
+        for(k=0;k<n;k++) printf("%d ",arr[k]);
+        printf("\n");
+    }
+    printf("Final: ");
+     int k;
+     for(k=0;k<n;k++) printf("%d ",arr[k]);
+     printf("\n");
+    
+}
+void insertion_sort(int ar[],int n){
+    int arr[n];
+    int y;
+    for(y=0;y<n;y++) arr[y]=ar[y];
+    int i=0;
+    for(i=0;i<n;i++){
+        int low=i,j;
+        //printf("\nlow: %d",arr[low]);
+        for(j=i;j>0;j--){
+            if(arr[j]<arr[j-1]){
+               int temp=arr[j];
+                arr[j]=arr[j-1];
+                arr[j-1]=temp;
+               // printf("\nnewlow: %d",arr[low]);
+            }
+            
+        }
+            
                
             
         
@@ -82,7 +115,12 @@ int main() {
     scanf("%d",&choice);
     switch(choice){
         case 1:
-           // insertion_sort(arr,n);
+             printf("Unsorted array: ");
+            for(i=0;i<n;i++){
+            printf(" %d",ar[i]);
+        }
+            printf("\n");
+            insertion_sort(ar,n);
             break;
         case 2:
             printf("Unsorted array: ");
