@@ -78,6 +78,7 @@ void insertion_sort(int ar[],int n){
                 arr[j]=arr[j-1];
                 arr[j-1]=temp;
             }
+            else break;
             
         }
             
