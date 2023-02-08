@@ -71,14 +71,12 @@ void insertion_sort(int ar[],int n){
     for(y=0;y<n;y++) arr[y]=ar[y];
     int i=0;
     for(i=0;i<n;i++){
-        int low=i,j;
-        //printf("\nlow: %d",arr[low]);
+        int j;
         for(j=i;j>0;j--){
             if(arr[j]<arr[j-1]){
                int temp=arr[j];
                 arr[j]=arr[j-1];
                 arr[j-1]=temp;
-               // printf("\nnewlow: %d",arr[low]);
             }
             
         }
