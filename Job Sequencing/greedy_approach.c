@@ -16,7 +16,7 @@ int compare(const void* a, const void* b)
 {
      Job* temp1 = (Job*)a;
     Job* temp2 = (Job*)b;
-    return (b->profit - a->profit);
+    return (temp2->profit - temp1->profit);
 }
 
 int min(int num1, int num2){
