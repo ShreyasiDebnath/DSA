@@ -6,7 +6,7 @@
 
  typedef struct Job {
 
-	char id; 
+	char id[10]; 
 	int dead; 
 	int profit; 
 } Job;
@@ -50,7 +50,7 @@ void printJobScheduling(struct Job arr[], int n)
 	for ( i = 0; i < n; i++){
 		if (slot[i]){
 		
-			printf("%c ", arr[result[i]].id);
+			printf("%s ", arr[result[i]].id);
 			totalprofit=totalprofit+arr[result[i]].profit;}
 		}
 		printf("\nTotal Profit: %d",totalprofit);
@@ -67,7 +67,7 @@ int main()
 	for(i=0;i<n;i++){
 		printf("**********JOB NO.:%d **********",i+1);
 		printf("\nJob Name: ");
-		scanf("%c",&arr[i].id);
+		scanf("%s",&arr[i].id);
 		printf("Deadline: ");
 		scanf("%d",&arr[i].dead);
 		printf("Profit: ");
@@ -81,5 +81,4 @@ int main()
 	printJobScheduling(arr, n);
 	return 0;
 }
-
 
