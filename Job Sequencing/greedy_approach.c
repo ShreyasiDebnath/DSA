@@ -4,17 +4,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
- struct Job {
+ typedef struct Job {
 
-	char id[10]; 
+	char id; 
 	int dead; 
 	int profit; 
-} ;
+} Job;
 
 
-int compare(struct Job a, struct Job b)
+int compare(const void* a, const void* b)
 {
-	return (b.profit - a.profit);
+     Job* temp1 = (Job*)a;
+    Job* temp2 = (Job*)b;
+    return (b->profit - a->profit);
 }
 
 int min(int num1, int num2){
@@ -48,7 +50,7 @@ void printJobScheduling(struct Job arr[], int n)
 	for ( i = 0; i < n; i++){
 		if (slot[i]){
 		
-			printf("%s ", arr[result[i]].id);
+			printf("%c ", arr[result[i]].id);
 			totalprofit=totalprofit+arr[result[i]].profit;}
 		}
 		printf("\nTotal Profit: %d",totalprofit);
@@ -65,7 +67,7 @@ int main()
 	for(i=0;i<n;i++){
 		printf("**********JOB NO.:%d **********",i+1);
 		printf("\nJob Name: ");
-		scanf("%s",&arr[i].id);
+		scanf("%c",&arr[i].id);
 		printf("Deadline: ");
 		scanf("%d",&arr[i].dead);
 		printf("Profit: ");
